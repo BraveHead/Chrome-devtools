@@ -1,15 +1,35 @@
 {
-    "name": "Hello Extensions",
-    "description": "一个简单的Demo",
+    "name": "GAAdapter2GIO",
+    "description": "GrowingIO适配GA的调试工具",
     "version": "0.0.1",
     "manifest_version": 3,
     "icons": {
-        "16": "icon.png"
+        "16": "/images/get_started16.png",
+        "32": "/images/get_started32.png",
+        "48": "/images/get_started48.png",
+        "128": "/images/get_started128.png"
     },
     "action": {
         "default_icon": {
-            "16": "icon.png"
+            "16": "/images/get_started16.png",
+            "32": "/images/get_started32.png",
+            "48": "/images/get_started48.png",
+            "128": "/images/get_started128.png"
         },
-        "default_popup": "index.html"
-    }
+        "default_popup": "popup.html"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+C",
+                "mac": "MacCtrl+Shift+C"
+            },
+            "description": "Opens index.html"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "scripting"],
+    "options_page": "options.html"
 }
