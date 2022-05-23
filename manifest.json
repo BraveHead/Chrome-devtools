@@ -1,0 +1,15 @@
+{
+    "name": "Hello Extensions",
+    "description": "一个简单的Demo",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icon.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icon.png"
+        },
+        "default_popup": "index.html"
+    }
+}
