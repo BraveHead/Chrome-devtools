@@ -18,18 +18,13 @@
         },
         "default_popup": "popup.html"
     },
-    "commands": {
-        "_execute_action": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+C",
-                "mac": "MacCtrl+Shift+C"
-            },
-            "description": "Opens index.html"
-        }
-    },
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": ["storage", "activeTab", "scripting"],
-    "options_page": "options.html"
+    "permissions": ["storage", "activeTab", "scripting", "debugger"],
+    "web_accessible_resources": [{ "resources": ["/js/scripts.js"], "matches": [ "https://www.baidu.com/*" ] }],
+    "content_scripts": [{
+        "matches": [ "https://www.baidu.com/*" ],
+        "js": ["js/scripts.js"]
+    }]
 }
