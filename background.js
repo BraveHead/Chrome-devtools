@@ -1,9 +1,8 @@
-let color = '#3aa757';
-let GIO_SDK_HOST = 'www.XXXX.com';
+let GIO_SDK_HOST = 'http://test.com/';
 
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ color, gio_host: GIO_SDK_HOST });
-    console.log('Default background color set to %cgreen', `color: ${color}`);
+    chrome.storage.sync.set({ gio_host: GIO_SDK_HOST });
+    // console.log('Default background color set to %cgreen', `color: ${color}`);
 });
 
 // chrome.storage.onChanged.addListener((changes, area) => {

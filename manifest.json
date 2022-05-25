@@ -16,15 +16,16 @@
             "48": "/images/get_started48.png",
             "128": "/images/get_started128.png"
         },
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_title": "点我设置SDK转发地址"
     },
     "background": {
         "service_worker": "background.js"
     },
     "permissions": ["storage", "activeTab", "scripting", "debugger"],
-    "web_accessible_resources": [{ "resources": ["/js/scripts.js"], "matches": [ "https://www.baidu.com/*" ] }],
+    "web_accessible_resources": [{ "resources": ["/js/scripts.js"], "matches": [ "<all_urls>" ] }],
     "content_scripts": [{
-        "matches": [ "https://www.baidu.com/*" ],
+        "matches": [ "<all_urls>" ],
         "js": ["js/scripts.js"]
     }]
 }

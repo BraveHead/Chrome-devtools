@@ -1,13 +1,21 @@
-function addScript() {
-    // const headEle = document.querySelector('head');
-    // const script = document.createElement('script');
-    // script.innerText = 'console.log("script load!");'
-    // headEle.appendChild(script);
-    console.log('addScript ok!');
-};
+ga('create', 'UA-XXXXX-Y', 'auto');
 
-window.addScript = addScript;
+ga(function(tracker) {
 
-// debugger;
+  // Grab a reference to the default sendHitTask function.
+  var originalSendHitTask = tracker.get('sendHitTask');
 
-console.log('laod ok!');
+  // Modifies sendHitTask to send a copy of the request to a local server after
+  // sending the normal request to www.google-analytics.com/collect.
+  tracker.set('sendHitTask', function(model) {
+    originalSendHitTask(model);
+    var xhr = new XMLHttpRequest();
+    console.log('sendHitTask:', model.get('hitPayload') );
+    xhr.open('POST', document.getElementById('gio_host_content').getAttribute('host-content'), true);
+    xhr.send(model.get('hitPayload'));
+  });
+});
+
+ga('send', 'pageview');
+
+console.log('ga reload');
